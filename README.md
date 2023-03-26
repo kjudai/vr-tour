@@ -1,2 +1,3 @@
 # vr-tour
-The html file and javascript for exploring the virtual reality 360 images through A-Frame  
+
+360度の全天球画像を配置してVRを体験できるウェブページを作成します。JavaScriptによるA-Frameを使用してページをhtmlで構成します。作品例は、https://web.judai.jp/vr/ のページをご覧下さい。作成方法も、そのページで紹介する予定です。GitHubには、作るためのテンプレートファイルを置いてあります。360度の全天球画像を準備して、あとは、htmlファイルをコピペの後、修正するとVR TOUR（パノラマツアー）のページが完成します。
