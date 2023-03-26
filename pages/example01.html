@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title>VR tour</title>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="../assets/vr_tour.js"></script>
+    <link rel="preload" as="fetch" href="../assets/NotoSansJP-Regular.json" crossorigin></link>
+    <link rel="preload" as="image" href="../assets/NotoSansJP-Regular.png" crossorigin></link>
+  </head>
+
+  <body>
+
+  <!-- A-Frameでの描画はココから -->
+  <a-scene loading-screen="dotsColor: white; backgroundColor: black" vr-mode-ui="enabled: false" 
+    cursor="fuse: false; rayOrigin: mouse" light="defaultLightEnabled: false">
+
+    <a-assets>
+      <!-- 360度写真 -->
+      <img id="3D_image" src="../images/example01.jpg"> 
+      <!-- 音声ファイル -->
+      <audio id="audio" src="../audio/example01.mp3" preload="auto"></audio>
+      <!-- アイコン画像 -->
+      <img id="vr_img" src="../assets/vrBtn.png">   
+      <img id="info_img" src="../assets/infoBtn.png">
+      <img id="home_img" src="../assets/homeBtn.png">
+      <img id="audio_on_img" src="../assets/audioOnBtn.png">
+      <img id="audio_off_img" src="../assets/audioOffBtn.png">
+    </a-assets>
+
+    <a-light type="ambient" color="#fff"></a-light>
+
+    <!-- Oculusコントローラーの設定 -->
+    <a-entity id="leftControl" laser-controls="hand: left" vr-controller 
+      raycaster="objects: .clickable;"></a-entity>
+    <a-entity id="rightControl" laser-controls="hand: right" vr-controller
+      raycaster="objects: .clickable;"></a-entity>
+
+    <!-- 視点カメラの設定 -->
+    <a-camera look-controls wasd-controls="enabled: false" rotation="0 0 0" position="0 0 0">
+      <a-image home_btn src="#home_img"></a-image>
+      <a-image id="info_btn" src="#info_img" visible="false"></a-image>
+      <a-image id="audio_btn" src="#audio_on_img" visible="false"></a-image>
+      <a-image id="vr_btn" src="#vr_img"></a-image>
+    </a-camera> 
+
+    <!-- 360度写真の配置 -->
+    <a-sky src="#3D_image" rotation="0 0 -2" position="0 0 0">
+      <!-- リンク先のURLとリンク位置（サークル位置） -->
+      <a-entity warp_circle="link: ./example02.html" position="0 -100 -100"></a-entity>
+      <a-entity warp_circle="link: ./example03.html" position="-50 -100 -100"></a-entity>
+      <a-entity warp_circle="link: ./example04.html" position="50 -100 -150"></a-entity>
+    </a-sky>
+
+    <!-- 音声データの配置 -->
+    <a-sound voice src="#audio"></a-sound> <!-- この行を消すと音声なし -->
+
+    <!-- インフォメーションボード -->
+    <!-- <a-entity>から</a-entity>までを消すとボードなし -->
+    <a-entity info_window="title: タイトル; 
+      content:
+      日本語の表示テスト
+      Can you display the Japanese font?
+      If not, please let me know.
+      "></a-entity>
+
+  </a-scene> 
+
+  </body>
+</html>
