@@ -24,11 +24,12 @@ AFRAME.registerComponent('warp_circle', {
             location.href = data.link + '?vr=' + vr_mode + '&orient=' + String(sendRotationY); 
         });
         // 形状の指定（円と大きさ、透明度）
-        el.setAttribute('geometry', 'primitive: circle; radius: 20;');
+        el.setAttribute('geometry', 'primitive: circle; radius: 4.0;');
         el.setAttribute('rotation', '-90 0 0');
         el.setAttribute('material', {
                             side: 'double',
                             color: '#FFF',
+                            depthTest: false,
                             transparent: true,
                             opacity: 0.5
                         });
@@ -58,7 +59,7 @@ AFRAME.registerComponent('vr-controller', {
         el.stickState = false; // スティックコントローラー制御用
         el.stickX = 0.0;
         el.setAttribute('raycaster', {
-            far: 500,
+            far: 2000,
             lineColor: '#ff8',
             showLine: false
         });
