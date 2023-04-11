@@ -189,7 +189,6 @@ AFRAME.registerComponent('info_window', {
         const infoBtn = document.getElementById('info_btn');
         infoBtn.setAttribute('position', {x: 0.0, y: -3.5, z: -5.0});
         infoBtn.setAttribute('geometry', {height: 0.75, width: 0.75});
-        infoBtn.setAttribute('visible', 'true');
         infoBtn.setAttribute('class', 'clickable');
         infoBtn.addEventListener('click', createInfo);
     }
@@ -222,7 +221,6 @@ AFRAME.registerComponent('voice', {
         audioBtn.setAttribute('geometry', {height: 0.75, width: 0.75});
         audioBtn.setAttribute('class', 'clickable');
         audioBtn.addEventListener('click', playVoice);
-        audioBtn.setAttribute('visible', 'true');
     }
 });
 
