@@ -39,8 +39,8 @@
     <!-- 視点カメラの設定 -->
     <a-camera look-controls wasd-controls="enabled: false" rotation="0 0 0" position="0 0 0">
       <a-image home_btn src="#home_img"></a-image>
-      <a-image id="info_btn" src="#info_img" visible="false"></a-image>
-      <a-image id="audio_btn" src="#audio_on_img" visible="false"></a-image>
+      <a-image id="info_btn" src="#info_img"></a-image> <!-- ボードなしは、この行も消す -->
+      <a-image id="audio_btn" src="#audio_on_img"></a-image> <!-- 音声なしは、この行も消す -->
       <a-image id="vr_btn" src="#vr_img"></a-image>
     </a-camera> 
 
